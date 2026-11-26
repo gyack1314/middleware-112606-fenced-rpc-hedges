@@ -1,0 +1,13 @@
+{"at":0,"kind":"capacity","record":{"service":"report","max_inflight":2,"hedge_budget":1}}
+{"at":0,"kind":"endpoint","record":{"service":"report","replica":"east","epoch":1,"domain":"e","applied":7}}
+{"at":0,"kind":"endpoint","record":{"service":"report","replica":"west","epoch":1,"domain":"w","applied":7}}
+{"at":1,"kind":"read","record":{"id":"r1","client":"a","service":"report","key":"run","min":5,"deadline":15,"hedge_after":2}}
+{"at":1,"kind":"send","record":{"id":"r1","as":"p","replica":"east","epoch":1,"backup":false}}
+{"at":3,"kind":"send","record":{"id":"r1","as":"h","replica":"west","epoch":1,"backup":true}}
+{"at":4,"kind":"result","record":{"as":"h","replica":"west","epoch":1,"status":"value","version":7,"value":"good"}}
+{"at":5,"kind":"cancelled","record":{"as":"p","result":"unknown"}}
+{"at":6,"kind":"endpoint","record":{"service":"report","replica":"east","epoch":2,"domain":"e","applied":0}}
+{"at":7,"kind":"read","record":{"id":"r2","client":"a","service":"report","key":"run","min":5,"deadline":18,"hedge_after":2}}
+{"at":8,"kind":"inspect","record":{"id":"r2"}}
+{"at":9,"kind":"result","record":{"as":"p","replica":"east","epoch":1,"status":"value","version":6,"value":"old"}}
+{"at":10,"kind":"inspect","record":{"service":"report"}}
